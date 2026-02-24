@@ -1,0 +1,23 @@
+# Sensitive credentials - NEVER commit these
+gcp-key.json
+.env
+
+# OS files
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary data artifacts
+methanex_corpus.json
