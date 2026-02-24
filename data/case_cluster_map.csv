@@ -1,0 +1,204 @@
+event_id,cluster_id,cluster_name,title,category_type,year
+E0120,0,AI Monitoring & Decision-Support Errors,AI Recommendation Leads to Incorrect Maintenance Action,Incident,2024
+E0121,0,AI Monitoring & Decision-Support Errors,AI Alarm False‑Positive Triggers Unnecessary Equipment Shutdown,Incident,2024
+E0122,0,AI Monitoring & Decision-Support Errors,AI-Controlled System Rejects Operator Override Command,Incident,2024
+E0123,0,AI Monitoring & Decision-Support Errors,AI System Fails to Detect Critical Equipment Fault,Incident,2024
+E0124,0,AI Monitoring & Decision-Support Errors,AI Monitoring System Misses Degradation Due to Model Drift,Incident,2024
+E0125,0,AI Monitoring & Decision-Support Errors,AI System Prioritizes Minor Alert Over Critical Alarm,Incident,2024
+E0126,0,AI Monitoring & Decision-Support Errors,AI System Misdiagnoses Vibration Fault as Flow Instability,Incident,2024
+E0127,0,AI Monitoring & Decision-Support Errors,AI Recommendations Create Escalating Control Feedback Loop,Incident,2024
+E0128,0,AI Monitoring & Decision-Support Errors,AI Advisory Prompts Misinterpreted by Contractor Crew,Incident,2024
+E0129,0,AI Monitoring & Decision-Support Errors,AI System Applies Incorrect Setpoint Adjustment to Control Loop,Incident,2024
+E0130,0,AI Monitoring & Decision-Support Errors,AI Data-Sharing Error Causes Cross‑Unit Miscommunication,Incident,2024
+E0131,0,AI Monitoring & Decision-Support Errors,AI Control Override Fails to Disengage During Manual Intervention,Incident,2024
+E0132,0,AI Monitoring & Decision-Support Errors,AI Misroutes Data Between Systems Causing Wrong Actions,Incident,2024
+E0133,0,AI Monitoring & Decision-Support Errors,AI Sensor-Fusion Disagreement Causes Incorrect Process Response,Incident,2024
+E0134,0,AI Monitoring & Decision-Support Errors,AI Workflow Escalation Loop Causes Repeated Task Reassignment,Incident,2024
+E0135,0,AI Monitoring & Decision-Support Errors,AI Seasonal Drift Triggers Repeated False Pressure Alerts,Incident,2024
+E0136,0,AI Monitoring & Decision-Support Errors,AI Multi‑Layer Consensus Breakdown Causes Conflicting Operational Decisions,Incident,2024
+E0137,0,AI Monitoring & Decision-Support Errors,AI-Human Timing Mismatch Causes Delayed Process Correction,Incident,2024
+E0138,0,AI Monitoring & Decision-Support Errors,AI Task-Tagging Error Routes Work to Wrong Equipment,Incident,2024
+E0139,0,AI Monitoring & Decision-Support Errors,AI Report Automation Sends Critical Data to Wrong Distribution Group,Incident,2024
+E0140,0,AI Monitoring & Decision-Support Errors,AI System Misclassifies Digital Permit Leading to Unauthorized Work Start,Incident,2024
+E0141,0,AI Monitoring & Decision-Support Errors,AI Scheduling Tool Assigns Mismatched Shift Coverage Across Teams,Incident,2024
+E0142,0,AI Monitoring & Decision-Support Errors,AI Decision Engine Creates Conflicting Duplicate Control Paths,Incident,2024
+E0143,0,AI Monitoring & Decision-Support Errors,AI Notification Routing Failure Prevents Critical Update From Reaching Correct Team,Incident,2024
+E0144,0,AI Monitoring & Decision-Support Errors,AI Confidence Inversion Leads to Misprioritized Operational Decision,Incident,2024
+E0145,0,AI Monitoring & Decision-Support Errors,AI-Assisted Operations Continue After Human Supervision Drops,Incident,2024
+E0146,0,AI Monitoring & Decision-Support Errors,AI Triage Queue Misordering Delays Critical Task Response,Incident,2024
+E0147,0,AI Monitoring & Decision-Support Errors,AI Runtime Model Override Causes Unexpected Control Behavior,Incident,2024
+E0148,0,AI Monitoring & Decision-Support Errors,AI Misinterprets Operator Intent and Applies Incorrect Adjustment,Incident,2024
+E0149,0,AI Monitoring & Decision-Support Errors,AI Escalation Logic Saturation Overloads Operators With Repetitive Alerts,Incident,2024
+E0150,0,AI Monitoring & Decision-Support Errors,AI Anomaly-Summary Engine Generates Incorrect Diagnostic Report,Incident,2024
+E0151,0,AI Monitoring & Decision-Support Errors,Misaligned AI Demand Model Handoff Causes Inventory Disruptions,Other,2023
+E0152,0,AI Monitoring & Decision-Support Errors,Misconfigured Sensor Mapping in Predictive Model Deployment,Other,2022
+E0153,0,AI Monitoring & Decision-Support Errors,Incorrect Rule Overrides During AI Document Classifier Transition,Other,2021
+E0154,0,AI Monitoring & Decision-Support Errors,Optimization Model Deployed with Incorrect Resource Calendars,Other,2020
+E0060,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Unauthorized System Override Exposes Crew to Live Hydraulic Pressure,Near Miss,2023
+E0061,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Unauthorized Reset Leaves Crew Exposed to Stored Mechanical Energy,Near Miss,2021
+E0062,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Unauthorized System Override Creates Multi‑Energy Exposure During Line Maintenance,Near Miss,2023
+E0063,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Multi‑Energy Isolation Breach During System Commissioning,Near Miss,2022
+E0064,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Multi‑Energy Isolation Breach During Contractor Equipment Upgrade,Near Miss,2023
+E0065,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Multi‑Energy Release Risk Triggered by PTW Conflict During Equipment Isolation,Near Miss,2021
+E0066,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Multi‑Energy Release Risk During Overlapping SIMOPS,Near Miss,2023
+E0067,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Cyber‑Triggered Multi‑Energy Isolation Breach on Control Module,Near Miss,2022
+E0068,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Cyber‑Triggered Multi‑Energy Activation During PTW Conflict,Near Miss,2023
+E0069,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Cyber‑Triggered Isolation Bypass on Multi‑Energy Actuator,Near Miss,2023
+E0070,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Cyber‑Triggered Isolation Fault During Line‑Breaking Activity,Near Miss,2022
+E0075,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Digital PTW Manipulation Enables Unsafe Energization,Near Miss,2023
+E0084,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Multi‑Energy Exposure During Incorrect Isolation Verification,Near Miss,2023
+E0085,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Incomplete Isolation Leads to Multi‑Energy Exposure During Valve Removal,Near Miss,2022
+E0086,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Multi‑Energy Release Risk During Contractor Valve Replacement,Near Miss,2023
+E0189,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Parallel Lockout Overlap Created Conflicting Isolation States,Other,2023
+E0190,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Unrecognized Instrument‑Air Source Caused Redundant Energy Hazard,Other,2023
+E0191,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Secondary Actuator Failure Caused Unexpected Valve Motion During Maintenance,Other,2024
+E0193,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Dual-Motion Actuator Misalignment Caused Uncontrolled Valve Shift,Other,2024
+E0194,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Unexpected Pneumatic-Hydraulic Cross‑Coupling Caused Uncontrolled Valve Stroke,Near Miss,2021
+E0195,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Hidden Hydraulic Accumulator Pressure Caused Near‑Miss During Disassembly,Near Miss,2023
+E0196,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Accumulator Isolation Drift Resulted in Unexpected Hydraulic Pressure Return,Near Miss,2024
+E0199,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Hydraulic-Pneumatic Migration Caused Unexpected Actuator Motion,Near Miss,2021
+E0200,1,Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),Hydraulic-Pneumatic Interaction Led to Unexpected Valve Stroke,Near Miss,2022
+E0007,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Coffee Spill Near Power Strip in Shared Workspace,Other,2024
+E0014,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Ergonomic Strain and Communication Gap During Remote Maintenance Support,Other,2021
+E0040,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Employee Trips Over Laptop Cord and Falls Against Filing Cabinet,Incident,2023
+E0041,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Employee Falls After Contact With Faulty Power Bar Under Desk,Incident,2023
+E0042,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Electrical Short in Office Printer Causes Employee Injury,Incident,2023
+E0043,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Employee Trips and Nearly Contacts Exposed Power Cord Under Desk,Near Miss,2024
+E0050,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Remote Worker Suffers Electrical Burn and Fall During Improvised Home Setup,Incident,2023
+E0051,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Remote Worker Exposed to Electrical & Data-Security Risks After Phishing-Induced Device Failure,Incident,2024
+E0052,2,Office Electrical / Ergonomics / Minor Workplace Hazards,"Remote Laptop Compromised by Ransomware, Triggering Data Loss & Physical Hazard",Incident,2024
+E0087,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Remote File Sync Error Causes Unintended Data Exposure,Other,2023
+E0088,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Phishing Email During Remote Work Leads to Credential Exposure,Other,2024
+E0089,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Family‑Member Interaction Causes Unintended Access to Work Files,Other,2024
+E0090,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Lost Laptop During Remote Work Leads to Data Security Exposure,Other,2024
+E0091,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Child Interaction at Home Triggers Accidental Email Send,Other,2024
+E0092,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Misaddressed Group Email Shares Internal Update Too Widely,Other,2024
+E0093,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Accidental Screen‑Share Reveals Sensitive Content During Remote Meeting,Other,2024
+E0094,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Webcam Left On During WFH Meeting Reveals Private Household Footage,Other,2024
+E0095,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Webcam Left On Captures Private Conversation During Remote Meeting,Other,2024
+E0096,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Smart Speaker Activation Exposes Sensitive Conversation During Remote Work,Other,2024
+E0097,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Home Visitor Overhears Sensitive Discussion During Remote Work Call,Other,2024
+E0102,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Public Café Work Session Causes Network and Document Exposure Risks,Other,2024
+E0103,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Laptop Theft in Public Café During Remote Work,Other,2024
+E0104,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Sensitive Project Discussion Overheard During Café Meeting,Other,2024
+E0105,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Distracted Café Work Session Leads to Mis‑Addressed Email,Other,2024
+E0106,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Confidential Work Viewed by Bystander During Public Café Session,Near Miss,2021
+E0107,2,Office Electrical / Ergonomics / Minor Workplace Hazards,Sensitive Client Data Captured in Public Café,Incident,2023
+E0001,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Minor Vapor Release During Instrument Tubing Replacement,Other,2019
+E0002,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unexpected Pressure Release During Sampling Line Replacement,Other,2021
+E0003,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Vapor Release During Transfer Hose Connection at Metering Pad,Other,2023
+E0008,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unexpected Pressure Release During Manual Valve Isolation,Other,2019
+E0009,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Minor Solvent Spill During Hose Transfer Setup,Other,2021
+E0011,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Contractor Line-Breaking Deviation During Drain Line Isolation,Other,2023
+E0012,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Contractor Hot Work Near Unverified Drain Line,Other,2022
+E0013,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Contractor Hot Work Overlapping With Live Equipment Testing,Other,2021
+E0015,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Equipment Shift Causes Uncontrolled Line Movement During Inspection,Near Miss,2019
+E0023,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unexpected Vapour Release During Transfer Line Warm‑Up,Other,2022
+E0024,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Vapour Puff During Additive Injection Line Start‑Up,Near Miss,2023
+E0025,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Overpressure and Toxic Release During Reactor Heat‑Up,Incident,2024
+E0026,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Contractor Exposed to Vapour During Temporary Line Disconnection,Other,2024
+E0027,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Contractor Overcome by Vapour While Breaking Chemical Line,Incident,2022
+E0028,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Contractors Exposed During Pressurized Acid Header Removal,Incident,2023
+E0036,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Chemical Residue Release and Mechanical Seal Failure During Contractor Line Unbolting,Incident,2022
+E0037,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Swinging Load and Acid Spray Injure Contractor at Column Top,Incident,2021
+E0038,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Chemical Leak Contacts Energized Motor Terminal During Contractor Work,Incident,2023
+E0054,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Cloud Credential Breach Disrupts Digital Permit‑to‑Work Workflow,Near Miss,2022
+E0055,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Cloud PTW Breach Disrupts Shutdown Isolation Controls,Near Miss,2023
+E0056,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unauthorized System Access Alters Electrical Isolation Status,Near Miss,2023
+E0057,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Isolation Override Discovered During Emergency Electrical Response,Near Miss,2021
+E0058,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unauthorized Override Leads to Live‑Equipment Exposure During Maintenance,Near Miss,2023
+E0059,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unauthorized System Change Exposes Crew to Live Pneumatic Energy,Near Miss,2022
+E0080,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Cyber Interference During Line‑Breaking on Process Header,Near Miss,2022
+E0175,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Uncontrolled Supervisory Override Enabled Work to Proceed Without Required Safeguards,Incident,2024
+E0178,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Digital Alarm Suppression Triggered Physical Cascading Error,Incident,2022
+E0179,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Permit‑Chain Breakdown Allowed Work to Proceed Without Critical Controls,Incident,2023
+E0180,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Bootstrap Isolation Failure During Early-Stage Equipment Prep,Incident,2023
+E0181,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,SIMOPS Collision During Parallel Maintenance and Operations Activities,Incident,2024
+E0182,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Energy‑Isolation Drift During Extended Maintenance Preparation,Incident,2023
+E0183,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Incorrect Valve Tagging Led to Wrong Line Being Depressurized,Incident,2024
+E0184,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Line-Break Misalignment During Parallel Maintenance Tasks,Other,2024
+E0185,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Cross‑Team Isolation Confusion During Parallel Maintenance,Other,2023
+E0186,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Tagging System Drift Led to Incorrect Valve Identification,Other,2021
+E0187,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Misinterpreted P&ID Boundary Led to Incorrect Isolation Selection,Other,2022
+E0188,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Incorrect Boundary Assumption Resulted in Partial System Isolation,Other,2024
+E0192,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Unexpected Air Manifold Backfeed During Line Isolation,Near Miss,2022
+E0197,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Cascading Pressure Release from Multiple Hydraulic Accumulators,Near Miss,2023
+E0198,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Blocked Bleed‑Path Failure Led to Unexpected Hydraulic Pressure Release,Near Miss,2024
+E0201,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Cross‑Header Interaction Failure Led to Unexpected Pressure Transfer,Near Miss,2023
+E0202,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Multi‑Header Feed Mis‑Identification During Isolation,Near Miss,2022
+E0203,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Tie‑In Isolation Drift Led to Unexpected Pressure Return,Near Miss,2024
+E0204,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Legacy‑Line Re‑Pressurization Caused Unexpected Pressure Return During Line Break,Near Miss,2024
+E0205,3,Line Work: Pressure/Vapor Release during Maintenance/Transfer,Mis‑Mapped Tie‑In Boundary Led to Incorrect Isolation,Near Miss,2023
+E0004,4,Field Safety: Falls / Confined Space / Contractor Work,Inhalation Exposure During Acid Dilution Setup,Other,2022
+E0005,4,Field Safety: Falls / Confined Space / Contractor Work,Solvent Transfer Splash During Sample Prep,Other,2021
+E0006,4,Field Safety: Falls / Confined Space / Contractor Work,Solvent Bottle Tipped During Waste Consolidation,Other,2023
+E0010,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Scaffold Deck Shift During Equipment Removal,Other,2022
+E0016,4,Field Safety: Falls / Confined Space / Contractor Work,Worker Temporarily Unaccounted for During Confined Space Prep,Near Miss,2019
+E0017,4,Field Safety: Falls / Confined Space / Contractor Work,,Near Miss,2021
+E0018,4,Field Safety: Falls / Confined Space / Contractor Work,,Near Miss,2022
+E0019,4,Field Safety: Falls / Confined Space / Contractor Work,Worker Lost Visibility Near Unguarded Grating During Inspection,Near Miss,2022
+E0020,4,Field Safety: Falls / Confined Space / Contractor Work,Worker Entered Temporary Platform Without Tie‑Off,Near Miss,2021
+E0021,4,Field Safety: Falls / Confined Space / Contractor Work,Worker Approached Unsafe Walkway With Missing Guardrail,Near Miss,2020
+E0022,4,Field Safety: Falls / Confined Space / Contractor Work,,Near Miss,2023
+E0029,4,Field Safety: Falls / Confined Space / Contractor Work,Chemical Vapour Accumulation During Contractor Vessel Entry,Incident,2022
+E0030,4,Field Safety: Falls / Confined Space / Contractor Work,Toxic Back‑Flow and Entrant Collapse During Confined‑Space Reactor Inspection,Incident,2023
+E0031,4,Field Safety: Falls / Confined Space / Contractor Work,Multiple Entrants Overcome by Vapours in Reactor Pit,Incident,2021
+E0032,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Entrant Exposed to Residual Vapour in Process Vessel,Incident,2021
+E0033,4,Field Safety: Falls / Confined Space / Contractor Work,Safety Watch Absent During Contractor Entry Activities,Other,2020
+E0034,4,Field Safety: Falls / Confined Space / Contractor Work,Improper Respirator Handling Causes Dust Inhalation in Confined Space,Incident,2022
+E0035,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Struck by Dislodged Tool Inside Confined Chamber,Incident,2022
+E0044,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Nearly Falls After Contact With Energized Cable During Office Fit‑Out,Near Miss,2024
+E0045,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Receives Electrical Shock and Falls From Ladder During Office Retrofit,Incident,2023
+E0046,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Falls From Unsecured Platform During HVAC Unit Removal,Incident,2023
+E0047,4,Field Safety: Falls / Confined Space / Contractor Work,Contractor Shocked While Falling From Ladder; Tool Drops Into Office Workspace,Incident,2024
+E0049,4,Field Safety: Falls / Confined Space / Contractor Work,Arc Flash During Overhead Panel Removal Causes Fall and Dropped Tool Hazard,Incident,2023
+E0081,4,Field Safety: Falls / Confined Space / Contractor Work,Cyber Compromise Skews Toxic Gas Detection Readings,Near Miss,2021
+E0082,4,Field Safety: Falls / Confined Space / Contractor Work,Cyber Disruption Affects Load Monitoring During Lifting Operation,Near Miss,2020
+E0083,4,Field Safety: Falls / Confined Space / Contractor Work,Cyber Interference Leads to Unsafe Confined Space Atmosphere,Near Miss,2023
+E0053,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cloud Dashboard Breach Leads to Process Safety Near Miss,Incident,2022
+E0071,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber‑Triggered Overfeed on Chemical Dosing Skid,Near Miss,2021
+E0072,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber‑Triggered Override Causes Chemical Dosing Misfeed,Near Miss,2024
+E0073,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Network Access Causes Control System Disruption,Near Miss,2023
+E0074,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber Intrusion Causes Unexpected Equipment Start‑Up,Near Miss,2024
+E0076,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber Manipulation Causes Off‑Spec Effluent Condition,Near Miss,2022
+E0077,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber Intrusion Causes Unsafe Pressure Surge in Utility Line,Near Miss,2024
+E0078,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber Intrusion Disrupts Mechanical Startup Sequence,Near Miss,2023
+E0079,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cyber‑Triggered Control Interference During Overlapping SIMOPS,Near Miss,2024
+E0155,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Access Breach During Temporary Network Maintenance,Other,2021
+E0156,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Entry Into Electrical Switchroom During Routine Testing,Other,2022
+E0157,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Entry Into Data‑Center Cold Aisle During Server Diagnostics,Near Miss,2023
+E0158,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Badge Tailgating Into Server Cage During Network Cutover,Near Miss,2024
+E0159,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Data‑Hall Entry Through Cloned Access Badge,Other,2024
+E0160,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Privilege Escalation on Internal Application,Other,2024
+E0161,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Social‑Engineering Attack Leads to Unauthorized System Privilege Escalation,Other,2023
+E0162,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Multi‑Stage Social Engineering & Physical Access Breach in Operations Hub,Other,2023
+E0163,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Contractor Identity Deception Leads to Unauthorized System Access,Other,2023
+E0164,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Fake Subcontractor Gains Unauthorized Entry to Utility Corridor,Other,2024
+E0165,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Delivery Personnel Gained Entry to Restricted Workshop Area,Other,2024
+E0166,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Access via Uniform Spoofing and Tailgating,Other,2024
+E0167,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Coordinated Unauthorized Access Attempt by Multiple Individuals,Other,2024
+E0168,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Unauthorized Multi‑Vehicle Staging Attempt at Security Perimeter,Other,2024
+E0169,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Multi‑Step Escalation Chain Exploited to Gain Unauthorized System Access,Other,2024
+E0170,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Privilege‑Chain Collapse Enabled Unauthorized System Modifications,Other,2024
+E0171,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Hybrid Digital Privilege Misuse and Unauthorized Physical Access Attempt,Other,2024
+E0172,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Incorrect Role Assignment Led to Unauthorized System and Workflow Actions,Other,2023
+E0173,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Contractor Role Creep Led to Unauthorized Work Approvals,Incident,2024
+E0174,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Workflow Bypass Misconfiguration Allowed Task to Skip Critical Review,Other,2024
+E0176,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Bulk Data Update Error Caused Inaccurate Work Statuses,Other,2024
+E0177,5,Cyber-Physical Control Disruption (Unauthorized Access/Overrides),Cross‑System Workflow Conflict Delayed Critical Maintenance,Other,2023
+E0098,6,HR / Privacy Exposure (Remote/Hybrid Work),Home Visitor Overhears Sensitive HR Call During Remote Work,Other,2024
+E0099,6,HR / Privacy Exposure (Remote/Hybrid Work),Home Visitor Overhears Confidential Performance Review Discussion,Other,2024
+E0100,6,HR / Privacy Exposure (Remote/Hybrid Work),Home Visitor Overhears Confidential Compensation Call During Remote Work,Other,2024
+E0101,6,HR / Privacy Exposure (Remote/Hybrid Work),Remote Work Distraction Leads to Compensation Discussion Being Overheard,Other,2024
+E0108,6,HR / Privacy Exposure (Remote/Hybrid Work),Unauthorized Viewing of Internal HR Dashboard in Open Workspace,Incident,2023
+E0109,6,HR / Privacy Exposure (Remote/Hybrid Work),HR Dashboard Exposed During Virtual Meeting Screen Share,Incident,2023
+E0110,6,HR / Privacy Exposure (Remote/Hybrid Work),Brief HR Dashboard Exposure During Virtual Meeting,Near Miss,2023
+E0111,6,HR / Privacy Exposure (Remote/Hybrid Work),HR File Accidentally Shared in Project Team Chat,Near Miss,2023
+E0112,6,HR / Privacy Exposure (Remote/Hybrid Work),Confidential HR Document Accessed After Accidental Chat Share,Incident,2024
+E0113,6,HR / Privacy Exposure (Remote/Hybrid Work),Widespread Exposure of HR File in Team Chat,Incident,2024
+E0114,6,HR / Privacy Exposure (Remote/Hybrid Work),HR File Shared to External Recipient via Team Chat,Incident,2024
+E0115,6,HR / Privacy Exposure (Remote/Hybrid Work),HR Document Exposed Through Public Sharing Link,Incident,2024
+E0116,6,HR / Privacy Exposure (Remote/Hybrid Work),Printed HR File and Digital Backup Both Exposed,Incident,2024
+E0117,6,HR / Privacy Exposure (Remote/Hybrid Work),Visitor Observes Exposed HR Documents in Shared Area,Incident,2024
+E0118,6,HR / Privacy Exposure (Remote/Hybrid Work),Visitor Photographs Exposed HR Information in Reception Area,Incident,2024
+E0119,6,HR / Privacy Exposure (Remote/Hybrid Work),Incorrect AI Output Causes Workflow Disruption and Data Exposure,Incident,2024

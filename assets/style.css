@@ -1,0 +1,371 @@
+/* --- GLOBAL METHANEX VARIABLES --- */
+:root {
+    --methanex-navy: #002C77;
+    --methanex-green: #8CC63F;
+    --methanex-cyan: #44A0C8;
+    --bg-light: #F4F6F9;
+    --text-dark: #333333;
+    --border-gray: #EAEAEA;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-light);
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--methanex-navy);
+    font-weight: bold;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* NEW: Keyword Pop Typewriter Effect */
+@keyframes badgePop {
+    0% { opacity: 0; transform: scale(0.5); }
+    70% { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- METHANEX STICKY HEADER --- */
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 9999; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFFFFF;
+    padding: 15px 40px;
+    border-bottom: 3px solid var(--border-gray);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+.header-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--methanex-navy);
+    margin: 0;
+}
+
+/* --- MAIN LAYOUT CONTROLS --- */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 22px 60px;
+}
+
+/* --- FILTERS --- */
+.filter-row {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1000;
+}
+.filter-item {
+    flex: 1;
+    min-width: 240px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    padding: 14px 14px 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+/* --- REACT-SELECT DROPDOWN HOVER FIX --- */
+.Select-menu-outer { z-index: 9999 !important; }
+.Select-option { color: var(--text-dark) !important; }
+.Select-option.is-focused {
+    background-color: rgba(68, 160, 200, 0.15) !important; 
+    color: var(--methanex-navy) !important;
+    font-weight: bold;
+}
+.Select-option.is-selected {
+    background-color: var(--methanex-cyan) !important;
+    color: #FFFFFF !important;
+}
+
+/* --- METHANEX OFFICIAL CHECKBOX STYLING --- */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #333333;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    position: relative;
+    top: -2px; 
+}
+input[type="checkbox"]:checked {
+    background-color: var(--methanex-cyan);
+    box-shadow: inset 0 0 0 2px #FFFFFF; 
+}
+
+/* --- EXECUTIVE KPI CARDS --- */
+.kpi-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 16px 0 6px;
+    position: relative;
+    z-index: 1; 
+}
+.kpi-card {
+    flex: 1;
+    min-width: 190px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-gray);
+    border-left: 6px solid var(--methanex-green);
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.kpi-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .02em;
+    color: #6B7280;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.kpi-value {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--methanex-navy);
+}
+
+/* --- GRAPH CONTAINERS --- */
+.graph-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+.graph-card {
+    flex: 1;
+    min-width: 420px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    box-sizing: border-box; 
+    animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- DASH TABS STYLING --- */
+.custom-tabs {
+    border-bottom: none !important;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+.custom-tab {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--border-gray) !important;
+    color: #666666 !important;
+    border-radius: 8px !important;
+    padding: 12px 28px !important;
+    font-weight: 800 !important;
+    font-size: 15px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.custom-tab:hover {
+    border-color: var(--methanex-navy) !important;
+    color: var(--methanex-navy) !important;
+}
+.custom-tab--selected {
+    background-color: var(--methanex-navy) !important;
+    color: #FFFFFF !important;
+    border-color: var(--methanex-navy) !important;
+    box-shadow: 0 4px 10px rgba(0,44,119,0.2);
+}
+
+/* --- BUTTONS --- */
+.methanex-btn {
+    background-color: var(--methanex-navy);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.methanex-btn:hover {
+    background-color: var(--methanex-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(140, 198, 63, 0.3);
+}
+
+.methanex-btn-cyan {
+    background-color: var(--methanex-cyan);
+    color: #FFFFFF !important;
+    border: none;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+.methanex-btn-cyan:hover {
+    background-color: var(--methanex-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 44, 119, 0.3);
+}
+
+details > summary.methanex-btn-cyan { list-style: none; }
+details > summary.methanex-btn-cyan::-webkit-details-marker { display: none; }
+
+/* --- TEXT AREA --- */
+.text-area {
+    width: 100%;
+    box-sizing: border-box; 
+    height: 150px;
+    padding: 15px;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    font-family: inherit;
+    margin-bottom: 15px;
+    color: var(--text-dark); 
+    font-style: normal;      
+    resize: vertical;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+.text-area:focus {
+    outline: none;
+    border-color: var(--methanex-cyan);
+    box-shadow: 0 0 0 3px rgba(68, 160, 200, 0.1);
+}
+.text-area::placeholder { color: #999999; font-style: italic; }
+
+/* --- TABLE CARDS --- */
+.table-card {
+    margin-top: 16px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    overflow: hidden;
+    animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- NEW: TOP TERMS BADGES (Typewriter Effect) --- */
+.term-badge {
+    background-color: rgba(68, 160, 200, 0.1);
+    color: var(--methanex-navy);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid rgba(68, 160, 200, 0.3);
+    /* Hidden by default, revealed by animation */
+    opacity: 0;
+    animation: badgePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.term-badge:hover {
+    background-color: var(--methanex-cyan);
+    color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+/* --- NEW: EXAMPLE CARDS --- */
+.ex-item {
+    background-color: #F8FBFD;
+    border-left: 3px solid var(--methanex-green);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+.ex-tag {
+    font-size: 11px;
+    color: var(--methanex-cyan);
+    font-weight: 800;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+.ex-text { font-size: 13px; color: var(--text-dark); }
+
+/* --- NEW: CLUSTER PROFILE METRIC GRID --- */
+.prof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.prof-card {
+    background: var(--bg-light);
+    border-left: 4px solid var(--methanex-cyan);
+    border-radius: 8px;
+    padding: 15px;
+}
+.prof-val {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--methanex-navy);
+    line-height: 1;
+}
+.prof-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #666666;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+.prof-text-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* --- NEW: LEGAL FOOTER --- */
+.footer-banner {
+    background-color: var(--methanex-navy);
+    color: #FFFFFF;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.footer-link {
+    color: var(--methanex-cyan);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.footer-link:hover {
+    color: var(--methanex-green);
+    text-decoration: underline;
+}

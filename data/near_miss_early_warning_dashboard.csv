@@ -1,0 +1,8 @@
+cluster_name,n_cases,n_incident,n_near_miss,high_priority_rate,n_high_priority,n_high_priority_near_miss,n_high_priority_incident,near_miss_rate,hp_near_miss_rate_within_near_miss,hp_incident_rate_within_incident
+Stored Energy / Isolation Breaches (Hydraulic/Pneumatic),24,0,20,100.0,24,20,0,83.3,100.0,
+Line Work: Pressure/Vapor Release during Maintenance/Transfer,45,13,17,75.6,34,16,12,37.8,94.1,92.3
+Field Safety: Falls / Confined Space / Contractor Work,26,10,11,76.9,20,10,9,42.3,90.9,90.0
+Cyber-Physical Control Disruption (Unauthorized Access/Overrides),31,2,10,64.5,20,7,1,32.3,70.0,50.0
+Office Electrical / Ergonomics / Minor Workplace Hazards,26,7,2,42.3,11,1,6,7.7,50.0,85.7
+HR / Privacy Exposure (Remote/Hybrid Work),16,10,2,56.2,9,0,9,12.5,0.0,90.0
+AI Monitoring & Decision-Support Errors,35,31,0,37.1,13,0,13,0.0,,41.9
