@@ -1,0 +1,78 @@
+# =============================================================================
+# Files in this list are excluded from `gcloud run deploy` uploads.
+# Keep the deployed image small and free of legacy / dev-only artifacts.
+# =============================================================================
+
+# IDE / editor
+.cursor/
+.cursorignore
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# Python virtualenvs (Docker rebuilds these from requirements.txt)
+.venv/
+venv/
+env/
+ENV/
+.python-version
+.tool-versions
+
+# Python bytecode (Cloud Build doesn't need them)
+__pycache__/
+*.py[cod]
+*.class
+*.egg-info/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+htmlcov/
+.tox/
+
+# Local secrets — MUST be excluded so .env can't override the secret mount
+.env
+.env.*
+!.env.example
+gcp-key.json
+
+# Notebooks / scratch
+*.ipynb
+.ipynb_checkpoints/
+
+# Git metadata
+.git/
+.gitignore
+.gitattributes
+.github/
+.gitlab/
+
+# Documentation (README is built into the GitHub repo, not the runtime image)
+README.md
+LICENSE
+
+# Legacy Vertex AI / Gemini RAG stack — superseded by safety_analyst.py.
+# Keeping it in version control for reference but excluding it from
+# Cloud Run uploads keeps the image small and prevents accidental imports.
+legacy_rag_engine/
+
+# Dev-only artifacts (DSPy/GEPA reproducibility dump — not used at runtime)
+dspy_gepa_eval_cases.json
+
+# Logs / dev dumps
+*.log
+logs/
+
+# Stale Vertex artifacts (already deleted but in case any return)
+methanex_corpus.json
+methanex_corpus.jsonl
+
+# OS junk
+Thumbs.db
+*.bak
+*.tmp
+*.tar.gz

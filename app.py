@@ -1,27 +1,26 @@
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
 os.environ['DASH_HOT_RELOAD'] = 'False'
 
-# ADD YOUR OWN VALUE: Path to your GCP service account key file.
-# Set GOOGLE_APPLICATION_CREDENTIALS in your .env file (see .env.example).
-# Default: ./gcp-key.json (relative to project root)
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.getenv(
-    'GOOGLE_APPLICATION_CREDENTIALS', './gcp-key.json'
-)
+from dotenv import load_dotenv
+load_dotenv()
+
+from typing import Any, cast
 
 import dash
 from dash import dcc, html, Input, Output, State, dash_table, no_update
 import pandas as pd
-import numpy as np # Add numpy for logarithmic calculations
+import numpy as np  # used for log() in the Early Warning Index
 import plotly.express as px
 import plotly.graph_objects as go
-from rag_engine import analyze_new_event
+from safety_analyst import analyze_new_event
 
 # --- METHANEX CORPORATE COLOR PALETTE ---
 METHANEX_PALETTE = ["#002C77", "#8CC63F", "#44A0C8", "#5D7B9D", "#C4D6B0"]
+
+# Dash's stricter type stubs reject extra CSS keys like `backgroundColor` on
+# `StyleDataConditional` even though they're valid at runtime. Casting to Any
+# once at definition time keeps the table call sites clean.
+_STRIPED_ROWS: Any = [{'if': {'row_index': 'odd'}, 'backgroundColor': '#F4F6F9'}]
 
 # --- DATA LOADING ---
 def load_data():
@@ -48,7 +47,7 @@ def apply_corporate_theme(fig):
     return fig
 
 def calc_priority(r, s):
-    """Calculate Priority Score based on Risk and Severity"""
+    """Compute the Priority Score from risk level and severity."""
     r_str = str(r).lower()
     s_str = str(s).lower()
     r_score = 2 if 'high' in r_str else (1 if 'medium' in r_str else 0)
@@ -239,7 +238,7 @@ app.layout = html.Div([
                 ], className="filter-item"),
                 html.Div([
                     html.Label("Filter by Cluster", style={'fontWeight': 'bold'}),
-                    dcc.Dropdown(id='cluster-dropdown', options=cluster_options, multi=True, placeholder="Select specific clusters...")
+                    dcc.Dropdown(id='cluster-dropdown', options=cast(Any, cluster_options), multi=True, placeholder="Select specific clusters...")
                 ], className="filter-item"),
                 html.Div([
                     dcc.Checklist(id='high-risk-toggle', options=[{'label': ' Show High Risk Only', 'value': 'High'}], value=[], style={'fontWeight': 'bold', 'marginTop': '25px', 'fontSize':'16px'})
@@ -294,7 +293,7 @@ app.layout = html.Div([
                                                     style_table={'overflowX': 'auto', 'minWidth': '100%'}, 
                                                     style_header={'backgroundColor': '#002C77', 'color': 'white', 'fontWeight': 'bold'},
                                                     style_cell={'textAlign': 'left', 'padding': '10px', 'fontFamily': 'Open Sans', 'whiteSpace': 'normal', 'height': 'auto'},
-                                                    style_data_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#F4F6F9'}],
+                                                    style_data_conditional=_STRIPED_ROWS,
                                                 )
                                             ], className="table-card", style={'width': '100%'})
                                         ]),
@@ -382,7 +381,7 @@ app.layout = html.Div([
                         style_table={'overflowX': 'auto', 'minWidth': '100%'}, 
                         style_header={'backgroundColor': '#002C77', 'color': 'white', 'fontWeight': 'bold'},
                         style_cell={'textAlign': 'left', 'padding': '10px', 'fontFamily': 'Open Sans', 'whiteSpace': 'normal', 'height': 'auto'},
-                        style_data_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#F4F6F9'}],
+                        style_data_conditional=_STRIPED_ROWS,
                         filter_action="native",
                         sort_action="native",
                     )
@@ -437,16 +436,17 @@ def _safe_series(df, col, default="Unknown"):
     if col and col in df.columns: return df[col].fillna(default)
     return pd.Series([default] * len(df))
 
-def _filtered_events(years, clusters, high_risk):
-    filtered = events_df.copy()
+def _filtered_events(years, clusters, high_risk) -> pd.DataFrame:
+    filtered: pd.DataFrame = events_df.copy()
     year_col = _first_col(filtered, ["year", "Year", "incident_year", "event_year"])
     if year_col:
         filtered[year_col] = pd.to_numeric(filtered[year_col], errors="coerce")
-        filtered = filtered[(filtered[year_col] >= years[0]) & (filtered[year_col] <= years[1])]
+        mask = (filtered[year_col] >= years[0]) & (filtered[year_col] <= years[1])
+        filtered = cast(pd.DataFrame, filtered.loc[mask])
     if clusters and "cluster_name" in filtered.columns:
-        filtered = filtered[filtered["cluster_name"].isin(clusters)]
+        filtered = cast(pd.DataFrame, filtered.loc[filtered["cluster_name"].isin(clusters)])
     if high_risk and ("High" in high_risk) and "risk_level" in filtered.columns:
-        filtered = filtered[filtered["risk_level"] == "High"]
+        filtered = cast(pd.DataFrame, filtered.loc[filtered["risk_level"] == "High"])
     return filtered
 
 # --- CALLBACKS ---
@@ -459,7 +459,7 @@ def _filtered_events(years, clusters, high_risk):
 def export_csv(n_clicks, years, clusters, high_risk):
     filtered = _filtered_events(years, clusters, high_risk)
     if len(filtered) == 0: return None
-    return dcc.send_data_frame(filtered.to_csv, "filtered_events.csv", index=False)
+    return dcc.send_data_frame(filtered.to_csv, "filtered_events.csv", index=False)  # type: ignore[attr-defined]
 
 @app.callback(
     [
@@ -468,7 +468,7 @@ def export_csv(n_clicks, years, clusters, high_risk):
         Output('perf-fig-cat', 'figure'), Output('perf-fig-risk', 'figure'), Output('perf-fig-year', 'figure'),
         Output('perf-fig-year-stack', 'figure'), Output('perf-fig-pc-stack', 'figure'),
         
-        # New Outputs: Early Warning & Heatmaps
+        # Additional outputs: Early Warning Index & Heatmaps
         Output('perf-fig-ewi', 'figure'), Output('perf-fig-counts-heat', 'figure'), Output('perf-fig-rates-heat', 'figure'),
         
         Output('perf-tbl-events', 'data'), Output('perf-tbl-events', 'columns'),
@@ -497,7 +497,7 @@ def update_dashboard(years, clusters, high_risk):
         empty_fig = apply_corporate_theme(go.Figure().update_layout(title="No Data Available"))
         return (kpi1, kpi2, kpi3, kpi4, kpi5, empty_fig, empty_fig, empty_fig, empty_fig, empty_fig, empty_fig, empty_fig, empty_fig, [], [], [])
 
-    # Overview Charts (Restore stable no-animation mode)
+    # Overview charts (stable, non-animated mode)
     cat_series = _safe_series(filtered, cat_col, default="Unknown").astype(str) if cat_col else pd.Series(["Unknown"] * len(filtered))
     cat_df = cat_series.value_counts(dropna=False).reset_index()
     cat_df.columns = ["category_type", "count"]
@@ -510,7 +510,7 @@ def update_dashboard(years, clusters, high_risk):
 
     year_col = _first_col(filtered, ["year", "Year", "incident_year", "event_year"])
     if year_col:
-        yr_df = filtered.groupby(year_col).size().reset_index(name="count").sort_values(year_col)
+        yr_df = filtered.groupby(year_col).size().to_frame("count").reset_index().sort_values(year_col)
         fig_year = px.line(yr_df, x=year_col, y="count", markers=True, title="Cases Over Time (Year)", color_discrete_sequence=[METHANEX_PALETTE[0]])
         fig_year.update_layout(xaxis=dict(dtick=1), xaxis_title="", yaxis_title="Cases")
         fig_year = apply_corporate_theme(fig_year)
@@ -522,7 +522,7 @@ def update_dashboard(years, clusters, high_risk):
         if stack_col:
             tmp = filtered.copy()
             tmp[stack_col] = _safe_series(tmp, stack_col, default="Unknown").astype(str)
-            st_df = tmp.groupby([year_col, stack_col]).size().reset_index(name="count")
+            st_df = tmp.groupby([year_col, stack_col]).size().to_frame("count").reset_index()
             fig_year_stack = px.bar(st_df, x=year_col, y="count", color=stack_col, barmode="stack", title=f"Cases by Year (stacked by {stack_col})", color_discrete_sequence=METHANEX_PALETTE)
             fig_year_stack.update_layout(xaxis=dict(dtick=1), xaxis_title="", yaxis_title="Cases")
             fig_year_stack = apply_corporate_theme(fig_year_stack)
@@ -537,8 +537,8 @@ def update_dashboard(years, clusters, high_risk):
         pc_tmp[pc_col] = _safe_series(pc_tmp, pc_col, default="Unknown").astype(str)
         pc_tmp[cat_col] = _safe_series(pc_tmp, cat_col, default="Unknown").astype(str)
         top_pc = pc_tmp[pc_col].value_counts().head(15).index.tolist()
-        pc_tmp = pc_tmp[pc_tmp[pc_col].isin(top_pc)]
-        pc_df = pc_tmp.groupby([pc_col, cat_col]).size().reset_index(name="count")
+        pc_tmp = cast(pd.DataFrame, pc_tmp.loc[pc_tmp[pc_col].isin(top_pc)])
+        pc_df = pc_tmp.groupby([pc_col, cat_col]).size().to_frame("count").reset_index()
         fig_pc = px.bar(pc_df, x="count", y=pc_col, color=cat_col, orientation="h", title="Top Primary Classifications", color_discrete_sequence=METHANEX_PALETTE)
         fig_pc.update_layout(yaxis={'categoryorder': 'total ascending'}, xaxis_title="Cases", yaxis_title="")
         fig_pc = apply_corporate_theme(fig_pc)
@@ -550,13 +550,18 @@ def update_dashboard(years, clusters, high_risk):
     if "cluster_name" in filtered.columns and not filtered.empty:
         ewi_df = filtered.copy()
         
-        # Calculate Priority Score dynamically
+        # Compute Priority dynamically
         ewi_df['priority_score'] = ewi_df.apply(lambda x: calc_priority(x.get(risk_col, ''), x.get(sev_col, '')), axis=1)
         ewi_df['is_hp'] = ewi_df['priority_score'] >= 4
-        ewi_df['is_nm'] = ewi_df[cat_col].astype(str).str.lower().isin(['near miss', 'nearmiss', 'near_miss']) if cat_col else False
-        ewi_df['is_inc'] = ewi_df[cat_col].astype(str).str.lower() == 'incident' if cat_col else False
+        if cat_col:
+            cat_lower = cast(pd.Series, ewi_df[cat_col]).astype(str).str.lower()
+            ewi_df['is_nm'] = cat_lower.isin(['near miss', 'nearmiss', 'near_miss'])
+            ewi_df['is_inc'] = cat_lower == 'incident'
+        else:
+            ewi_df['is_nm'] = False
+            ewi_df['is_inc'] = False
         
-        # Aggregate each Cluster
+        # Aggregate per cluster
         g = ewi_df.groupby('cluster_name')
         agg = pd.DataFrame({
             'n_cases': g.size(),
@@ -567,25 +572,25 @@ def update_dashboard(years, clusters, high_risk):
             'hp_incident': g.apply(lambda x: (x['is_hp'] & x['is_inc']).sum())
         }).reset_index()
         
-        # Calculate Rates
+        # Compute rates
         agg['near_miss_rate'] = np.where((agg['n_near_miss'] + agg['n_incident']) > 0, 
                                          agg['n_near_miss'] / (agg['n_near_miss'] + agg['n_incident']) * 100, 0)
         agg['hp_within_nm'] = np.where(agg['n_near_miss'] > 0, agg['hp_near_miss'] / agg['n_near_miss'] * 100, 0)
         agg['hp_within_inc'] = np.where(agg['n_incident'] > 0, agg['hp_incident'] / agg['n_incident'] * 100, 0)
         agg['hp_rate'] = np.where(agg['n_cases'] > 0, agg['n_high_priority'] / agg['n_cases'] * 100, 0)
         
-        # Calculate core EWI formula
+        # Apply the core EWI formula
         agg['ewi'] = (agg['near_miss_rate']/100.0) * (agg['hp_within_nm']/100.0) * np.log1p(agg['n_cases'])
         
-        # --- EWI Ranking Bar Chart ---
-        agg = agg.sort_values('ewi', ascending=True) # Reverse order so highest bar is on top
-        fig_ewi = px.bar(agg, x='ewi', y='cluster_name', orientation='h', 
+        # --- EWI ranking bar chart ---
+        agg = agg.sort_values('ewi', ascending=True)  # ascending sort so the highest bar lands on top in horizontal layout
+        fig_ewi = px.bar(agg, x='ewi', y='cluster_name', orientation='h',
                          title='Ranked Early Warning Index (Higher = More Urgent Focus)',
-                         color_discrete_sequence=[METHANEX_PALETTE[2]]) # Use Cyan to match screenshot color
+                         color_discrete_sequence=[METHANEX_PALETTE[2]])  # cyan to match the reference design
         fig_ewi = apply_corporate_theme(fig_ewi)
         fig_ewi.update_layout(xaxis_title="Early Warning Index", yaxis_title="", height=400)
         
-        # --- Counts Heatmap ---
+        # --- Counts heatmap ---
         c_cols = ['n_incident', 'n_near_miss', 'n_high_priority', 'hp_near_miss', 'hp_incident']
         c_labels = ['Incidents', 'Near Misses', 'High Priority (All)', 'High Priority (NM)', 'High Priority (Inc)']
         c_mat = agg.set_index('cluster_name')[c_cols]
@@ -593,15 +598,15 @@ def update_dashboard(years, clusters, high_risk):
         
         fig_counts = px.imshow(c_mat, text_auto=True, aspect="auto", color_continuous_scale="Blues", title="Counts by Cluster")
         fig_counts = apply_corporate_theme(fig_counts)
-        fig_counts.update_layout(height=400, coloraxis_showscale=False) # Hide color bar on the right to keep it clean
+        fig_counts.update_layout(height=400, coloraxis_showscale=False)  # hide the right-hand color bar for a cleaner look
         
-        # --- Rates Heatmap ---
+        # --- Rates heatmap ---
         r_cols = ['near_miss_rate', 'hp_rate', 'hp_within_nm', 'hp_within_inc']
         r_labels = ['Near Miss Rate', 'High Priority Rate', 'HP within NM', 'HP within Inc']
         r_mat = agg.set_index('cluster_name')[r_cols]
         r_mat.columns = r_labels
         
-        fig_rates = px.imshow(r_mat, text_auto=".0f", aspect="auto", color_continuous_scale="YlOrRd", zmin=0, zmax=100, title="Rates by Cluster (%)")
+        fig_rates = px.imshow(r_mat, text_auto=".0f", aspect="auto", color_continuous_scale="YlOrRd", zmin=0, zmax=100, title="Rates by Cluster (%)")  # type: ignore[arg-type]
         fig_rates = apply_corporate_theme(fig_rates)
         fig_rates.update_layout(height=400, coloraxis_showscale=False)
         
@@ -612,15 +617,15 @@ def update_dashboard(years, clusters, high_risk):
 
     preferred_cols = [c for c in ["event_id", "title", "year", "risk_level", "severity", "category_type", "cluster_name"] if c in filtered.columns]
     if not preferred_cols: preferred_cols = filtered.columns.tolist()[:10]
-    tbl_df = filtered[preferred_cols].copy()
-    tbl_data = tbl_df.to_dict("records")
+    tbl_df = cast(pd.DataFrame, filtered[preferred_cols]).copy()
+    tbl_data = tbl_df.to_dict(orient="records")
     tbl_cols = [{"name": c.replace("_", " ").title(), "id": c} for c in preferred_cols]
 
     drill_cols = [c for c in ['title', 'year', 'risk_level', 'severity', 'category_type'] if c in filtered.columns]
-    drill_data = filtered[drill_cols].to_dict('records') if drill_cols else []
+    drill_data = cast(pd.DataFrame, filtered[drill_cols]).to_dict(orient="records") if drill_cols else []
 
     return (kpi1, kpi2, kpi3, kpi4, kpi5, fig_cat, fig_risk, fig_year, fig_year_stack, fig_pc, 
-            fig_ewi, fig_counts, fig_rates, # Return the three new charts
+            fig_ewi, fig_counts, fig_rates,  # the three new figures added above
             tbl_data, tbl_cols, drill_data)
 
 def _load_optional_csv(path):
@@ -797,26 +802,16 @@ def run_ai(n_clicks, text, trigger_val):
     if not text:
         return "", dash.no_update, html.Div("Please enter a hypothetical event text.", style={'color': 'red', 'padding': '20px'}), None
 
-    import vertexai
-    from google.cloud import aiplatform
-
-    # ADD YOUR OWN VALUES: Set GCP_PROJECT_ID and GCP_LOCATION in your .env file
-    PROJECT_ID = os.getenv("GCP_PROJECT_ID")
-    LOCATION = os.getenv("GCP_LOCATION", "us-west1")
-    
     try:
-        vertexai.init(project=PROJECT_ID, location=LOCATION)
-        aiplatform.init(project=PROJECT_ID, location=LOCATION)
-
         response_text, top_10 = analyze_new_event(text, events_df)
         
         top_10_table = dash_table.DataTable(
-            data=top_10[['title', 'cluster_name', 'risk_level', 'severity']].to_dict('records'),
+            data=cast(pd.DataFrame, top_10[['title', 'cluster_name', 'risk_level', 'severity']]).to_dict(orient="records"),
             columns=[{"name": i.capitalize().replace("_", " "), "id": i} for i in ['title', 'cluster_name', 'risk_level', 'severity']],
             style_table={'overflowX': 'auto', 'minWidth': '100%'}, 
             style_header={'backgroundColor': '#002C77', 'color': 'white', 'fontWeight': 'bold'},
             style_cell={'textAlign': 'left', 'padding': '10px', 'fontFamily': 'Open Sans', 'whiteSpace': 'normal', 'height': 'auto'},
-            style_data_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#F4F6F9'}]
+            style_data_conditional=_STRIPED_ROWS
         )
 
         expander = html.Details([
@@ -841,7 +836,7 @@ def run_ai(n_clicks, text, trigger_val):
         return response_text, new_trigger, expander, top_10_json
 
     except Exception as e:
-        return "", dash.no_update, html.Div(f"Error connecting to Vertex AI: {str(e)}", style={'color': 'red', 'padding': '20px'}), None
+        return "", dash.no_update, html.Div(f"Error generating AI analysis: {str(e)}", style={'color': 'red', 'padding': '20px'}), None
 
 @app.callback(
     Output("download-top10-csv", "data"),
@@ -853,7 +848,8 @@ def export_top10(n_clicks, stored_data):
     if not n_clicks or n_clicks == 0 or not stored_data: 
         return no_update
     df = pd.read_json(stored_data, orient='split')
-    return dcc.send_data_frame(df.to_csv, "top_10_similar_events.csv", index=False)
+    return dcc.send_data_frame(df.to_csv, "top_10_similar_events.csv", index=False)  # type: ignore[attr-defined]
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8050)
+    port = int(os.environ.get('PORT', 8050))
+    app.run(debug=os.environ.get('DASH_DEBUG', '0') == '1', host='0.0.0.0', port=port)

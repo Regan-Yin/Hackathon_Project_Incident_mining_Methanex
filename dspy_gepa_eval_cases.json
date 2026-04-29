@@ -1,0 +1,362 @@
+[
+  {
+    "event_id": "E0143",
+    "input_text": "AI Notification Routing Failure Prevents Critical Update From Reaching Correct Team\nA site utilized an AI-based notification engine to automatically route operational alerts and work status updates to the appropriate teams. During steady operations, the vibration-monitoring system detected increasing oscillations on a process pump and generated a “Monitor Trend” alert. The AI notification engine was expected to send this alert to the Operat\nRoot cause hint: ● AI routing logic relied on incomplete keyword classification and misidentified priority categories. ● No validation layer ensured that safety‑ or reliability‑related notifications reached the approp",
+    "input_style": "full",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Incident",
+    "gold_root_cause": "● AI routing logic relied on incomplete keyword classification and misidentified priority categories. ● No validation layer ensured that safety‑ or reliability‑related notifications reached the appropriate teams. ● Governance around alert routing was insufficient after recent system updates. ● Distribution groups had been modified without synchronizing them with the AI model.",
+    "gold_lessons": "● AI notification systems require robust routing verification to ensure critical alerts go to the right teams. ● Distribution list changes must be synchronized with AI models. ● Operators should review historian and alert logs during deviations to detect missed alerts. ● Non-technical teams must know how to escalate unexpected notifications. ● AI models must differentiate clearly between operational alerts and general status updates."
+  },
+  {
+    "event_id": "E0021",
+    "input_text": "Worker Approached Unsafe Walkway With Missing Guardrail\nDuring routine utility checks, an operator followed a walkway route that was partially decommissioned for upgrades. One section had a removed guardrail awaiting replacement. The operator, unaware of the status, stepped onto the section and leaned outward to read a gauge below. Another operator radioed in, warning that the walkway was restricted. The operator\nRoot cause hint: ● Walkway‑status updates were not reflected on the site access map. ● No interim barrier or signage marking the incomplete guardrail. ● Inadequate communication between maintenance and operations duri",
+    "input_style": "full",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Walkway‑status updates were not reflected on the site access map. ● No interim barrier or signage marking the incomplete guardrail. ● Inadequate communication between maintenance and operations during upgrade work.",
+    "gold_lessons": "● Always implement temporary barriers when removing guardrails. ● Update walkway‑status information before shift handover. ● Maintain lighting audits for overhead access routes. ● Cross‑team communication must be formalized during upgrades."
+  },
+  {
+    "event_id": "E0015",
+    "input_text": "Equipment Shift Causes Uncontrolled Line Movement During Inspection. During a routine visual inspection of a low-pressure water return line, two technicians were checking for signs of vibration and ensuring supports were intact. The line was partially obscured by temporary insulation blankets from earlier maintenance. As one technician applied lig",
+    "input_style": "mini_report",
+    "gold_risk": "Medium",
+    "gold_severity": "Near Miss",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Inadequate inspection planning for temporary insulation installed during a previous job. ● Maintenance workflow did not include a verification step for secondary support hardware after insulation reinstatement. ● Design configuration made visual inspection of critical supports difficult.",
+    "gold_lessons": "● Always verify the condition and attachment of temporary insulation before conducting inspections behind or around it. ● Include secondary supports in post-maintenance checks, not only primary support structures. ● Improve communication protocols between workgroups when equipment configuration has been temporarily altered. ● Reinforce the importance of establishing exclusion zones during any work involving potentially unstable equipment. ● Enhance planning for inspections in congested or low-visibility environments."
+  },
+  {
+    "event_id": "E0157",
+    "input_text": "unauthorized entry into data‑center cold aisle during server",
+    "input_style": "keywords",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Inadequate physical access control: A secondary service door was left propped open without badge restrictions. ● Insufficient coordination with non‑IT contractors: Cleaning personnel were not informed of temporary restricted zones. ● Weak implementation of temporary isolation: The portable barrier was only at one entry point, not all possible access paths.",
+    "gold_lessons": "● All access points to active diagnostic areas must be locked or physically controlled. ● Communicate restricted zones to all contractors who may enter the building. ● Use multi‑point barricading when tasks involve open racks or floor cabling. ● Reinforce responsibilities for area control during high‑risk IT maintenance. ● Validate that environmental adjustments (e.g., airflow) do not compromise access security."
+  },
+  {
+    "event_id": "E0046",
+    "input_text": "Contractor Falls From Unsecured Platform During HVAC Unit Removal. A contractor crew was removing an obsolete HVAC unit from a mechanical room during an office renovation. The unit was positioned above head height, requiring workers to access it using a portable platform ladder. One contractor climbed onto the upper step to disconnect ductwork w",
+    "input_style": "mini_report",
+    "gold_risk": "High",
+    "gold_severity": "Serious",
+    "gold_category": "Incident",
+    "gold_root_cause": "● Failure to apply the Life Saving Rule for fall protection: Working at heights above the threshold occurred without harness use or anchor points. ● Inadequate pre‑task risk assessment: The job hazard analysis did not require engineered controls or task‑specific fall arrest for the elevated work. ● Insufficient contractor oversight: No supervisor was present to verify compliance with fall‑protection requirements before work began.",
+    "gold_lessons": "● LSR for fall protection requires 100% tie‑off when working outside secure platforms-no exceptions. ● Elevated work tasks must be evaluated for proper equipment selection (platform vs. scaffold). ● Non-slip footing or additional floor preparation is required when placing portable platforms in mechanical rooms. ● Supervisors must verify fall‑protection compliance at start of shift and during task changes. ● Permit and JHA documents must clearly define when harnesses and anchor systems are mandatory."
+  },
+  {
+    "event_id": "E0149",
+    "input_text": "AI Escalation Logic Saturation Overloads Operators With Repetitive Alerts. A process area relied on an AI‑driven alert‑escalation engine designed to notify operators when sensor deviations persisted longer than expected. During normal operations, a minor vibration drift was detected on a transfer pump. The AI generated an initial “Monitor” alert as inte",
+    "input_style": "mini_report",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Incident",
+    "gold_root_cause": "● AI escalation logic lacked suppression rules for repeating the same condition. ● Cumulative weighting design created runaway severity scoring under persistent but harmless drift. ● No negative‑scenario testing was performed on escalation behavior during system commissioning. ● Governance framework did not define rules for escalation cooldown intervals.",
+    "gold_lessons": "● AI escalation engines must have cooldown periods and duplicate‑alert suppression. ● Systems should group repeated alerts into a single thread rather than flooding the dashboard. ● Operators must verify physical gauges when AI-aligned alerts rise unexpectedly. ● AI severity scoring must distinguish between genuine trend escalation and persistent noise. ● Routine validation should include “saturation scenario” testing."
+  },
+  {
+    "event_id": "E0116",
+    "input_text": "An HR analyst printed a draft workforce‑planning document to review before a leadership meeting. The document included compensation‑band details, sensitive performance‑review commentary, and preliminary restructuring options. After printing, the analyst placed the document face‑down on a shared workstation while stepping away to join a virtual meeting. During the meeting, the analyst attempted to ",
+    "input_style": "snippet",
+    "gold_risk": "High",
+    "gold_severity": "Major",
+    "gold_category": "Incident",
+    "gold_root_cause": "● No enforced clean‑desk or physical document‑control expectations for HR‑classified materials. ● Collaboration tools did not prevent HR‑classified documents from appearing in “Recent Files” uploads. ● Lack of integrated physical‑and‑digital data‑handling guidance for hybrid work zones. ● Inadequate segregation of HR print workflows from shared office equipment.",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0014",
+    "input_text": "A remote engineer working from home was supporting a contractor team performing a routine instrument calibration. The engineer began the session using a laptop placed on a low coffee table while simultaneously monitoring live data via a secondary screen. As the call progressed, the contractor requested rapid configuration changes, prompting the engineer to lean forward repeatedly to access small o",
+    "input_style": "snippet",
+    "gold_risk": "Medium",
+    "gold_severity": "Near Miss",
+    "gold_category": "Other",
+    "gold_root_cause": "● Inadequate remote workstation ergonomics during prolonged technical tasks. ● No dedicated procedure for complex remote support with simultaneous screen monitoring. ● Insufficient planning for communication clarity during remote contractor interactions.",
+    "gold_lessons": "● Always establish a proper ergonomic setup before starting extended remote sessions. ● Use structured communication protocols-repeat-backs, step confirmation, and screen-sharing. ● Identify complex remote tasks that require dedicated workspace or additional monitoring tools. ● Ensure remote workers have access to headsets or noise-reducing equipment. ● Include remote-work considerations in planning for contractor-supported tasks."
+  },
+  {
+    "event_id": "E0066",
+    "input_text": "Multi‑Energy Release Risk During Overlapping SIMOPS",
+    "input_style": "title",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● PTW system did not require SIMOPS conflict checks across multiple teams working in the same isolation boundary. ● Multi‑energy isolation planning treated each energy source separately rather than part of an integrated hazard system. ● SIMOPS procedures did not define clear authority for energization during multi‑team work.",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0065",
+    "input_text": "multi‑energy release risk triggered conflict during equipment isolation",
+    "input_style": "keywords",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● PTW system allowed overlapping work scopes without mandatory cross‑permit conflict review. ● Shared electrical and pneumatic boundaries were not captured in the isolation plan. ● No integrated multi‑energy isolation strategy for systems with hybrid power sources. ● Insufficient supervision during simultaneous contractor work.",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0100",
+    "input_text": "Home Visitor Overhears Confidential Compensation Call During Remote Work. An employee working from home joined a scheduled virtual compensation review discussion with HR and their manager. The call included confidential information about salary adjustments, market benchmarking, and future eligibility for performance‑based compensation. Partway through ",
+    "input_style": "mini_report",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Remote‑work protocols lacked explicit guidance for managing confidential HR conversations. ● Microphone remained active due to no enforced auto‑mute on inactivity. ● Home workspace positioned too close to common household areas, decreasing privacy.",
+    "gold_lessons": "● Always mute audio when stepping away from any HR or compensation conversation. ● Conduct compensation discussions in private, enclosed rooms. ● Check microphone and camera status indicators before leaving the workstation. ● Establish personal protocols for handling unexpected home interruptions. ● Use noise‑isolating headsets for all sensitive HR calls."
+  },
+  {
+    "event_id": "E0034",
+    "input_text": "Improper Respirator Handling Causes Dust Inhalation in Confined Space\nContractors were clearing refractory debris inside a duct classified as a confined space. One entrant’s powered respirator alarmed for low airflow, but the worker ignored it to finish clearing a section. Another contractor attempted to “fix” the issue by adjusting the filter inside the space. Dust immediately entered the worker’s mask, causing coughing and i\nRoot cause hint: ● PPE alarm response procedures not followed or reinforced. ● Confined‑space team lacked shared understanding of respirator limitations. ● Inadequate coaching on when to exit vs troubleshoot.",
+    "input_style": "full",
+    "gold_risk": "Medium",
+    "gold_severity": "Minor",
+    "gold_category": "Incident",
+    "gold_root_cause": "● PPE alarm response procedures not followed or reinforced. ● Confined‑space team lacked shared understanding of respirator limitations. ● Inadequate coaching on when to exit vs troubleshoot.",
+    "gold_lessons": "● Any PPE alarm requires immediate exit. ● Contractors must not adjust another worker’s PPE inside a confined space. ● Dust‑generating tasks require enhanced PPE and airflow planning."
+  },
+  {
+    "event_id": "E0115",
+    "input_text": "document exposed through public sharing link",
+    "input_style": "keywords",
+    "gold_risk": "High",
+    "gold_severity": "Major",
+    "gold_category": "Incident",
+    "gold_root_cause": "● Default link‑sharing settings did not block or warn against public‑link creation for HR‑classified documents. ● Lack of enforced governance requiring restricted‑access links for sensitive content. ● Insufficient training on link‑generation risks in cloud collaboration tools. ● No automated detection mechanism to prevent public‑link posting in mixed‑access chat channels.",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0133",
+    "input_text": "sensor-fusion disagreement causes incorrect process response",
+    "input_style": "keywords",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Incident",
+    "gold_root_cause": "● AI sensor‑fusion algorithm did not properly validate or down‑weight conflicting sensor inputs. ● No robust calibration‑status check was integrated into the AI weighting logic. ● System lacked rules requiring human verification when sensor fusion outputs diverged from physical indicators. ● Governance framework for AI validation did not include regular review of confidence‑scoring models.",
+    "gold_lessons": "● AI sensor‑fusion systems must include logic to identify, flag, and down‑weight conflicting or drifting sensors. ● Operators need to compare fused data with raw sensor values during process disturbances. ● Calibration drift must be automatically highlighted within AI dashboards. ● Fused data should never be used for high‑impact control decisions without redundancy checks. ● AI validation processes must include scenario testing for sensor disagreement conditions."
+  },
+  {
+    "event_id": "E0069",
+    "input_text": "Cyber‑Triggered Isolation Bypass on Multi‑Energy Actuator. A maintenance team was replacing internal seals on a multi‑energy actuator that relies on low‑voltage electronics, pneumatic instrument air, and hydraulic boost pressure. The Permit to Work (PTW) required full isolation and verification of all three energy sources. Operations pla",
+    "input_style": "mini_report",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Cybersecurity vulnerabilities allowed unauthorized remote commands to safety‑critical control outputs. ● Isolation design relied too heavily on digital inhibits rather than hard‑wired maintenance lockout. ● PTW process did not consider cyber‑triggered changes as potential isolation threats. ● Firmware logic allowed forced commands to bypass software inhibits under rare conditions.",
+    "gold_lessons": "● Treat cyber access as a potential initiator of energy release equal to physical controls. ● Digital inhibits must be backed by hard‑wired physical maintenance lockouts. ● PTW reviews must consider cyber activities, remote access, and engineering workstation changes. ● Forced commands or test signals must trigger alarms during maintenance states. ● All engineering scripts must be version‑controlled, validated, and subject to access restrictions. ● Staff must be trained to recognize cyber‑related anomalies and escalate quickly."
+  },
+  {
+    "event_id": "E0185",
+    "input_text": "Cross‑Team Isolation Confusion During Parallel Maintenance\nTwo teams were scheduled to perform unrelated maintenance tasks on separate equipment connected to the same process header. Team A was preparing for a line break to install a new spool, while Team B was tasked with isolating an upstream section for an inspection. Both teams believed they held responsibility for implementing and verifying isolations-but neith\nRoot cause hint: ● Conflicting isolation ownership: No clearly assigned single authority for shared-system isolations ● Documentation misalignment: Printed and digital drawings not synchronized across teams ● Insuffic",
+    "input_style": "full",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Conflicting isolation ownership: No clearly assigned single authority for shared-system isolations ● Documentation misalignment: Printed and digital drawings not synchronized across teams ● Insufficient SIMOPS planning: Parallel tasks were not reviewed in a unified isolation meeting",
+    "gold_lessons": "● Establish a single isolation owner when multiple teams work on connected systems ● Ensure drawings (printed and digital) match before isolation begins ● Require cross-team isolation reviews for any SIMOPS involving shared headers ● Field verification must include physical checks of valve position and pressure, not just tag confirmation ● Isolation plans must highlight interdependencies between tasks"
+  },
+  {
+    "event_id": "E0070",
+    "input_text": "Cyber‑Triggered Isolation Fault During Line‑Breaking Activity\nA maintenance crew was preparing to perform a line‑breaking task on a utility header supplying pneumatic and hydraulic services to several actuators. The PTW required physical isolation, zero‑energy verification, and placement of upstream actuation modules in digital “maintenance inhibit” mode. Electrical LOTO was in place on the control module, and pressure\nRoot cause hint: nan",
+    "input_style": "full",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "nan",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0158",
+    "input_text": "A network team was performing a planned cutover inside a restricted server cage. The work required opening multiple equipment cabinets and routing temporary patch cables across the cage floor. Access to the cage was controlled by dual‑factor authentication on a badge reader. During a mid‑task cable trace, a third‑party storage contractor-scheduled to work in a different area of the data hall-follo",
+    "input_style": "snippet",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Inadequate access‑control discipline: Technicians did not perform a visual back‑check when entering, enabling tailgating. ● Insufficient contractor orientation: The contractor was unaware that server cages had restricted sub‑zones distinct from general data‑hall access. ● Lack of procedural guidance: The cutover plan did not include explicit cage‑entry control responsibilities.",
+    "gold_lessons": "● Restricted‑access cages require active badge‑in monitoring with no exceptions during high‑activity periods. ● All contractors must receive clear orientation on sub‑zone restrictions before entering the data hall. ● Keep cage‑entrance signage unobstructed and use high‑contrast warnings during maintenance. ● Include explicit access‑control roles in any network or server maintenance plan. ● Consider enabling anti‑tailgate sensors or alarms for high‑risk cages."
+  },
+  {
+    "event_id": "E0016",
+    "input_text": "Worker Temporarily Unaccounted for During Confined Space Prep",
+    "input_style": "title",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Inadequate shift‑transition planning: unclear handover of worker locations and task status. ● Procedural gap: no requirement for continuous radio carriage during prep activities. ● Insufficient emphasis on mandatory check‑in/check‑out for workers operating away from primary work zone.",
+    "gold_lessons": "● Always maintain radio contact during critical prep work and high‑risk activities. ● Establish clear check‑in/check‑out expectations during shift changes. ● Reinforce the requirement to notify the supervisor before leaving the work zone. ● Improve visibility of work boundaries and personnel flow. ● Ensure communication equipment is designed for continuous availability."
+  },
+  {
+    "event_id": "E0049",
+    "input_text": "Arc Flash During Overhead Panel Removal Causes Fall and Dropped Tool Hazard. A contractor electrical crew was performing a scheduled replacement of an overhead distribution panel located on a mezzanine platform. The task required removing a metal cover plate above shoulder height, using a tethered impact driver, while standing on a narrow grated walkway 4",
+    "input_style": "mini_report",
+    "gold_risk": "High",
+    "gold_severity": "Major",
+    "gold_category": "Incident",
+    "gold_root_cause": "● Inadequate electrical isolation boundary definition: The energized feeder was not captured in the isolation plan. ● Deficient change‑management processes: Legacy wiring and mislabeled feeders had not been reviewed or updated after prior modifications. ● Insufficient planning for multi‑energy hazards: The JHA focused on fall hazards but did not integrate arc‑flash or dropped‑object risks.",
+    "gold_lessons": "● Isolation packages must account for all potential energized feeders, including legacy or undocumented circuits. ● Zero‑energy verification must be performed at the exact point of work, not only at upstream panels. ● Work at height combined with electrical tasks requires integrated fall + arc‑flash + dropped‑object controls. ● Tool tethering systems must be rated for thermal and mechanical loads associated with arc‑flash scenarios. ● Mezzanine and overhead work zones must include exclusion areas beneath elevated work. ● Lighting and visibility inside older electrical cabinets must be improved before starting work."
+  },
+  {
+    "event_id": "E0006",
+    "input_text": "Solvent Bottle Tipped During Waste Consolidation\nA technician was consolidating small quantities of spent organic solvent into a designated waste carboy at the end of the afternoon shift. Several small bottles had accumulated, and space on the bench was limited. While reaching across the bench to retrieve a partially full bottle, the technician’s sleeve brushed another container, tipping it over. A splash \nRoot cause hint: ● Work area design did not include a dedicated consolidation zone with adequate spacing. ● Waste-handling procedures did not specify limits on the number of small containers allowed on the bench at on",
+    "input_style": "full",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Work area design did not include a dedicated consolidation zone with adequate spacing. ● Waste-handling procedures did not specify limits on the number of small containers allowed on the bench at once. ● Training materials lacked clarity on safe reach zones and container placement hierarchy.",
+    "gold_lessons": "● Establish a dedicated, uncluttered waste-consolidation zone. ● Keep only one container open at any time during solvent transfers. ● Use spill trays and bottle stands to prevent tipping. ● Reinforce guidance on body positioning, reach zones, and avoiding overextension. ● Implement limits on the number of containers allowed on the bench during consolidation. ● Adopt periodic bench-reset procedures at shift changes."
+  },
+  {
+    "event_id": "E0098",
+    "input_text": "Home Visitor Overhears Sensitive HR Call During Remote Work",
+    "input_style": "title",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● WFH protocols did not explicitly address managing unexpected visitors during confidential HR discussions. ● No technical safeguard muted the microphone automatically when the employee stepped away. ● The employee’s home workspace did not provide adequate separation or privacy controls.",
+    "gold_lessons": "● Always mute microphones or pause calls before stepping away, especially during HR or sensitive discussions. ● Create a dedicated, private WFH workspace, ideally with a door or physical barrier. ● Establish personal protocols for handling unexpected visitors during working hours. ● Enable visible or audible microphone‑status indicators to confirm mute status. ● Treat all HR conversations as highly confidential regardless of call duration or topic shift."
+  },
+  {
+    "event_id": "E0151",
+    "input_text": "Misaligned AI Demand Model Handoff Causes Inventory Disruptions\nA data science team had developed a new machine learning model to forecast product demand for a regional distribution network. The model was trained and validated in a development environment and showed improved accuracy compared to the legacy rules-based forecast. As part of a planned rollout, the team shared a brief handover deck and a configuration file w\nRoot cause hint: ● Inadequate transition process from development to production for AI models (no standardized model-handoff checklist or sign-off). ● Insufficient governance around data definitions and master data al",
+    "input_style": "full",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Inadequate transition process from development to production for AI models (no standardized model-handoff checklist or sign-off). ● Insufficient governance around data definitions and master data alignment between development and production environments. ● Lack of formal risk assessment for model deployment, including failure modes and business impact analysis before go-live.",
+    "gold_lessons": "● AI/ML models require a structured, documented handoff process with clear owners, not just code and a presentation. ● Data contracts and feature definitions must be verified end-to-end between development and production before deployment. ● New models that influence operational decisions should first run in shadow mode with monitoring and thresholds for intervention. ● End-user validation (planners, schedulers) is critical to confirm that outputs are operationally sensible. ● Model deployments should be treated as change-managed events, including risk assessment and rollback plans. ● Cross-functional training on AI model lifecycle and responsibilities reduces assumptions and handover gaps."
+  },
+  {
+    "event_id": "E0176",
+    "input_text": "Bulk Data Update Error Caused Inaccurate Work Statuses. A planner initiated a routine bulk‑update in the work‑management system to align task due dates following a rescheduled maintenance window. The update was meant to modify non‑critical housekeeping tasks only. However, an incorrect filter configuration caused the update to apply t",
+    "input_style": "mini_report",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Bulk‑update tool lacked granular preview capability before execution. ● Inadequate documentation and testing of the bulk‑update process. ● Filter logic relied on inconsistent task metadata, increasing error risk.",
+    "gold_lessons": "● Bulk modifications must be reviewed and previewed before execution. ● Systems should enforce safeguards against updates affecting high‑risk tasks. ● Metadata and task categorization must be standardized. ● Peer review required for any update affecting more than a small number of tasks. ● Staff must understand the potential risks of large automated changes."
+  },
+  {
+    "event_id": "E0189",
+    "input_text": "Two work groups-an electrical team and a mechanical maintenance team-were assigned tasks on separate equipment within the same production area. Each team initiated their own lockout/tagout (LOTO) procedures using lockboxes stored in different permit stations. The electrical crew isolated a motor control center (MCC) feeder, while the mechanical crew isolated a valve actuator upstream of a process ",
+    "input_style": "snippet",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Lockout ownership not centralized, allowing parallel LOTO to proceed without interdependency review ● Lack of integrated procedures addressing multi‑discipline isolations on shared interlocks ● Inadequate system documentation for control feedback paths and secondary energy sources",
+    "gold_lessons": "● Parallel lockouts must be coordinated through a central isolation authority ● Interlock and control circuits must be reviewed whenever isolations span two disciplines ● Digital LOTO systems must display interdependencies clearly ● Crews must not rely on past isolation patterns-each job requires fresh verification ● Field verification should confirm zero movement or torque on all actuators before starting mechanical work"
+  },
+  {
+    "event_id": "E0059",
+    "input_text": "Unauthorized System Change Exposes Crew to Live Pneumatic Energy",
+    "input_style": "title",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Digital isolation system allowed remote updates without a secondary verification step. ● Cyber‑security controls for contractor access accounts were insufficient. ● Procedures placed excessive reliance on digital isolation indicators rather than physical depressurization checks. ● Site risk review for pneumatic systems did not consider cyber‑manipulated isolation states.",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0020",
+    "input_text": "worker entered temporary platform without tie‑off",
+    "input_style": "keywords",
+    "gold_risk": "High",
+    "gold_severity": "Serious",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Task planning underestimated fall‑hazard severity during cable work. ● Inadequate reinforcement of fall‑protection requirements for temporary platforms. ● Lack of clear signage at ladder landing.",
+    "gold_lessons": "● Always verify tie‑off immediately upon transitioning onto elevated platforms. ● Include cable‑tension hazards in work‑at‑height JSAs. ● Reinforce peer‑checking culture during elevated work. ● Improve ladder‑landing signage for tie‑off requirement."
+  },
+  {
+    "event_id": "E0137",
+    "input_text": "An AI‑assisted control advisor was deployed to provide predictive recommendations for tightening process stability during minor load changes. Operators remained responsible for approving or rejecting each recommendation. During an evening shift, the AI detected a developing temperature deviation in a heat‑exchange loop and issued a recommendation to reduce flow through a bypass valve. At the same ",
+    "input_style": "snippet",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Incident",
+    "gold_root_cause": "● AI design lacked time‑stamping logic to expire stale recommendations. ● No requirement for the AI to reassess process conditions before executing an escalation path. ● Human‑machine interface did not alert operators when a recommendation became outdated. ● Governance rules did not define acceptable timing windows for human approval.",
+    "gold_lessons": "● AI recommendations must expire automatically if not confirmed within a defined time window. ● Systems should reassess current process conditions before allowing the operator to execute old recommendations. ● Operators need clear indicators of recommendation age and relevance. ● Training should emphasize timing‑sensitive human‑in‑the‑loop responsibilities. ● AI governance must define escalation behavior only after verifying that conditions remain abnormal."
+  },
+  {
+    "event_id": "E0045",
+    "input_text": "A contractor electrician was tasked with replacing overhead lighting panels as part of an office retrofit. The contractor worked from a portable 6‑foot ladder positioned beneath an open ceiling tile. The work permit indicated that the lighting circuit was isolated; however, a secondary feed supplying adjacent office cubicles remained energized due to an incomplete isolation boundary. While disconn",
+    "input_style": "snippet",
+    "gold_risk": "High",
+    "gold_severity": "Major",
+    "gold_category": "Incident",
+    "gold_root_cause": "● Incorrect isolation boundary definition: Work planning did not identify the presence of a second energized feed supplying nearby office loads. ● Inadequate contractor pre‑task briefing: The contractor was not informed of overlapping energized circuits above the ceiling grid. ● Insufficient verification: No field-based zero‑energy confirmation was completed at the fixture location prior to disconnection.",
+    "gold_lessons": "● All circuits in multi‑feed office zones must be identified, labeled, and isolated before electrical work begins. ● Zero‑energy verification must occur at the exact point of work, not just at the panel. ● Ladder work should only be conducted in clear, stable spaces free from floor obstructions. ● Ceiling spaces often contain multiple, mixed-voltage systems-contractors must treat these areas as high‑risk until verified safe. ● Cross‑shift communication must include explicit circuit‑status updates."
+  },
+  {
+    "event_id": "E0141",
+    "input_text": "AI Scheduling Tool Assigns Mismatched Shift Coverage Across Teams",
+    "input_style": "title",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Incident",
+    "gold_root_cause": "● AI scheduling logic weighted historical correlations between work orders and shift demands without validating current operational context. ● No approval step existed for large staffing adjustments generated by the AI. ● Governance framework lacked checks ensuring alignment between AI‑generated staffing plans and actual planned work. ● Scheduling model was not trained on variability introduced by planned vs. unplanned activities.",
+    "gold_lessons": "● AI scheduling adjustments must undergo human supervisor approval before implementation. ● Staffing models must incorporate distinctions between planned work and predictive workload assumptions. ● Dashboards should clearly show role‑specific staffing changes, not only headcount. ● Shift teams must verify coverage alignment during daily handovers. ● AI workforce tools require routine validation to ensure recommendations match real operational needs."
+  },
+  {
+    "event_id": "E0169",
+    "input_text": "Multi‑Step Escalation Chain Exploited to Gain Unauthorized System Access",
+    "input_style": "title",
+    "gold_risk": "High",
+    "gold_severity": "Serious",
+    "gold_category": "Other",
+    "gold_root_cause": "● Escalation approvals relied solely on ticket history, not identity verification. ● No standardized validation checkpoints between helpdesk tiers. ● Privilege‑override process lacked mandatory dual control for network‑level modifications.",
+    "gold_lessons": "● Identity verification must occur at every step of escalation, not only at initial contact. ● Ticket approval cannot be treated as proof of user identity. ● High‑risk actions (network permissions, admin overrides) require dual authorization. ● Support tiers must be trained to detect coordinated social‑engineering attempts. ● Monitoring systems should trigger alerts on device‑profile mismatches."
+  },
+  {
+    "event_id": "E0043",
+    "input_text": "An employee was rearranging items under a shared workstation to make space for a portable heater used earlier in the week. While shifting a storage box, they stepped onto a bundle of loose cables that had accumulated beneath the desk. The cables shifted, causing the employee to lose balance and fall forward onto their knees. As they fell, their hand landed within a few centimeters of an exposed se",
+    "input_style": "snippet",
+    "gold_risk": "High",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Near Miss",
+    "gold_root_cause": "● Inadequate electrical equipment management: No routine inspection process existed for extension cords in office areas. ● Poor cable‑routing design: Workstations lacked defined pathways or clips for power and data cables. ● Insufficient housekeeping expectations: Under‑desk storage was unmanaged, allowing items and cords to accumulate.",
+    "gold_lessons": "● All power cords in office settings must be part of routine visual inspections. ● Under‑desk cable routing must avoid tight bends, foot traffic areas, and storage zones. ● Shared workstations require clear ownership for equipment condition and housekeeping. ● Damaged cords must be removed from service at the first sign of wear. ● Employees should conduct brief hazard scans before reorganizing workspace areas."
+  },
+  {
+    "event_id": "E0051",
+    "input_text": "Remote Worker Exposed to Electrical & Data-Security Risks After Phishing-Induced Device Failure",
+    "input_style": "title",
+    "gold_risk": "High",
+    "gold_severity": "Serious",
+    "gold_category": "Incident",
+    "gold_root_cause": "● Insufficient verification controls for remote access: No mandatory URL or sender validation steps for remote employees. ● Lack of standardized home‑office setup requirements: Use of an overloaded, uninspected power strip. ● Gaps in remote‑work cyber‑awareness training: Employees not regularly retrained on phishing indicators or reporting pathways.",
+    "gold_lessons": "● Remote workers must verify software‑update prompts through official channels. ● WFH electrical setups must meet minimum safety specifications and avoid overloaded power strips. ● Employees should immediately report suspicious emails or unexpected device behavior. ● Cybersecurity and physical‑safety risks are interconnected in remote environments and require combined assessment. ● IT helpdesks must provide clear, rapid remote‑support pathways to discourage unsafe troubleshooting."
+  },
+  {
+    "event_id": "E0087",
+    "input_text": "An employee working from home was finalizing a set of internal planning documents using a cloud‑based file editing tool. During the session, their laptop began syncing project folders to a personal cloud account due to an incorrectly configured storage application installed during a recent software update. Several sensitive drafts, normally restricted to the corporate environment, were uploaded to",
+    "input_style": "snippet",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Remote‑work devices lacked standardized configurations preventing personal cloud connections. ● Update to the storage application changed default permissions without proper notification. ● No automated detection to flag cross‑account syncing for protected document types.",
+    "gold_lessons": "nan"
+  },
+  {
+    "event_id": "E0160",
+    "input_text": "unauthorized privilege escalation internal application",
+    "input_style": "keywords",
+    "gold_risk": "High",
+    "gold_severity": "Serious",
+    "gold_category": "Other",
+    "gold_root_cause": "● Incomplete security architecture: Authorization checks were applied inconsistently across service layers. ● Insufficient secure‑coding review: API endpoints lacked systematic enforcement of role validation. ● Weak segregation of development vs. production standards during feature rollout.",
+    "gold_lessons": "● Authorization must be enforced consistently at all layers, not only presentation layers. ● Sensitive APIs require security testing in every sprint, not only pre‑release. ● Access roles should follow a strict least‑privilege model, especially for contractors. ● Code reviews must include security‑specific checkpoints, not only functionality. ● API gateways should enforce global mandatory authorization policies."
+  },
+  {
+    "event_id": "E0186",
+    "input_text": "tagging system drift incorrect valve identification",
+    "input_style": "keywords",
+    "gold_risk": "Medium",
+    "gold_severity": "Potentially Significant",
+    "gold_category": "Other",
+    "gold_root_cause": "● Tagging system drift: Temporary tags were added and removed over months without controlled documentation ● Inadequate label durability and placement standards, allowing tags to fade or shift ● Lack of a clear process for reconciling temporary tags with permanent asset identification",
+    "gold_lessons": "● Temporary tags must be systematically controlled, logged, and removed at job close-out ● Tag placement must avoid insulation, congestion points, or locations prone to drift ● Field verification must include cross-checking with P&IDs and digital asset databases ● Pressure verification must occur at the exact planned break point-not just upstream or downstream ● All crews must recognize that tag appearance alone is not a reliable isolation identifier"
+  }
+]

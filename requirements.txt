@@ -1,29 +1,22 @@
 # Core Web Framework
 dash>=2.17.0
-pandas>=2.2.1
-plotly>=5.22.0
-
-# Google Cloud & AI Integrations
-google-cloud-aiplatform>=1.50.0
-google-cloud-storage>=2.14.0
-langchain-google-vertexai>=1.0.0  
-
-# Data Processing & Utilities
-scikit-learn>=1.4.2
-numpy>=1.26.4,<2.0.0
-python-dotenv>=1.0.1
-
-# UI and Table Enhancements
 dash-bootstrap-components>=1.5.0
 dash-table>=5.0.0
+gunicorn>=21.2.0
 
-# Google Auth (for GCP integration)
-google-auth>=2.0.0
-google-auth-oauthlib>=1.0.0
-
-# Excel/CSV Support (optional, for pandas)
+# Data
+pandas>=2.2.1
+numpy>=1.26.4,<2.0.0
+plotly>=5.22.0
+scikit-learn>=1.4.2
 openpyxl>=3.1.0
 
-# Utilities (optional, for progress bars, templating)
+# AI: Ollama Cloud + DSPy/GEPA prompt optimization
+ollama>=0.4.0
+dspy>=2.6.0
+gepa>=0.0.4
+
+# Utilities
+python-dotenv>=1.0.1
 tqdm>=4.66.0
 jinja2>=3.1.2
